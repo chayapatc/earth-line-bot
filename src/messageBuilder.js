@@ -1,5 +1,9 @@
 const rules = [
     {
+        pattern: '(?:สวัสดีเราชื่อ)*(.*)',
+        replyMessage: 'สวัสดี{captured} เราเอิร์ธนะ'
+    },
+    {
         pattern: 'hi',
         replyMessage: 'Hello'
     },
@@ -10,10 +14,6 @@ const rules = [
     {
         pattern: 'เอิร์ธ|Earth',
         replyMessage: 'ว่าไง'
-    },
-    {
-        pattern: '(?:สวัสดีเราชื่อ)*(.*)',
-        replyMessage: 'สวัสดี{captured} เราเอิร์ธนะ'
     }
 ];
 
@@ -22,16 +22,20 @@ const messageBuilder = function (message) {
         return [];
     }
 
-
     for (let i=0; i < rules.length; i++) {
+        let rule = rules[i];
         let regEx = new RegExp(rule.pattern, 'i');
-        let matched = rules.match(regEx);
-        if (matched.length > 0) {
+        let matched = message.text.match(regEx);
+        if (matched) {
+            const message = {
+                type: 'text',
+                text: rule.replyMessage.replace('{captured}', matched[1])
+            };
+
+            console.log('reply message:', message);
+
             return [
-                {
-                    type: 'text',
-                    text: rule.replyMessage.replace('{captured}', matched[1])
-                }
+                message
             ];
         }
     }
