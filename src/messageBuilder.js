@@ -1,6 +1,6 @@
 const rules = [
     {
-        pattern: '(?:สวัสดีเราชื่อ)*(.*)',
+        pattern: '(?:สวัสดีเราชื่อ) ?(.*)$',
         replyMessage: 'สวัสดี{captured} เราเอิร์ธนะ'
     },
     {
