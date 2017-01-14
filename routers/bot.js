@@ -7,8 +7,8 @@ const lineBot = new LineBot(channelAccessToken);
 
 const router = express.Router();
 
-router.get('/', function (req, res) {
-    res.send('bot');
+router.post('/', function (req, res) {
+    res.send('OK');
 });
 
 router.get('/verify', function (req, res) {
