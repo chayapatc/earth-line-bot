@@ -1,48 +1,29 @@
-const rules = [
-    {
-        pattern: '(?:สวัสดีเราชื่อ) ?(.*)$',
-        replyMessage: 'สวัสดี{captured} เราเอิร์ธนะ'
-    },
-    {
-        pattern: 'hi',
-        replyMessage: 'Hello'
-    },
-    {
-        pattern: 'สวัสดี',
-        replyMessage: 'สวัสดี'
-    },
-    {
-        pattern: 'เอิร์ธ|Earth',
-        replyMessage: 'ว่าไง'
-    }
-];
+const { messageType } = require('./constants');
+const ruleProcessor = require('./ruleProcessor');
 
 const messageBuilder = function (message) {
-    if (message.type !== 'text') {
-        return [];
+    if (message.type !== messageType.TEXT) {
+        return [
+            {
+                type: messageType.TEXT,
+                text: 'อะไรนะ เราไม่เข้าจาย'
+            }
+        ];
     }
 
-    for (let i=0; i < rules.length; i++) {
-        let rule = rules[i];
-        let regEx = new RegExp(rule.pattern, 'i');
-        let matched = message.text.match(regEx);
-        if (matched) {
-            const message = {
-                type: 'text',
-                text: rule.replyMessage.replace('{captured}', matched[1])
-            };
-
-            console.log('reply message:', message);
-
-            return [
-                message
-            ];
-        }
+    const matched = ruleProcessor.match(message);
+    if (matched) {
+        return [
+            {
+                type: matched.rule.msgType,
+                text: matched.rule.replyMessage.replace('{captured}', matched.captured)
+            }
+        ];
     }
 
     return [
         {
-            type: 'text',
+            type: messageType.TEXT,
             text: 'Hello'
         }
     ];
