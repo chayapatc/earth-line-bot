@@ -26,8 +26,9 @@ const rules = [
         replyMessage: {
             "type": "buttons",
             "thumbnailImageUrl": "https://goo.gl/7Rgamb",
-            "title": "Menu",
-            "text": "Mostly Sunny in Bangkok, 31°C",
+            "title": "Bangkok",
+            "text": "Mostly Sunny, 31°C",
+            "altText": "Mostly Sunny in Bangkok, 31°C",
             "actions": [
                 {
                     "type": "uri",
@@ -43,7 +44,7 @@ const rules = [
         msgType: messageType.TEMPLATE,
         replyMessage: {
             "type": "carousel",
-            "text": "เอาไปเลย 5 ร้าน",
+            "altText": "เอาไปเลย 5 ร้าน \nชัยครับ \nhttps://goo.gl/1xQ95i \nเจ๊จุ๊ ก๋วยเตี๋ยวปากหม้อ \nhttps://goo.gl/6rDaVj \nชัยครับ \nhttps://goo.gl/1xQ95i \nเจ๊จุ๊ ก๋วยเตี๋ยวปากหม้อ \nhttps://goo.gl/6rDaVj \nชัยครับ \nhttps://goo.gl/1xQ95i",
             "columns": [
                 {
                     "thumbnailImageUrl": "https://s3-ap-southeast-1.amazonaws.com/photo.wongnai.com/photos/2014/09/07/97702e51b47044c18bff9c1a4f92c652.jpg",

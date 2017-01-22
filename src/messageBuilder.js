@@ -26,7 +26,7 @@ const messageBuilder = function (message) {
             return [
                 {
                     "type": matched.rule.msgType,
-                    "altText": matched.rule.replyMessage.text || '',
+                    "altText": matched.rule.replyMessage.altText || '',
                     "template": matched.rule.replyMessage
                 }
             ];
