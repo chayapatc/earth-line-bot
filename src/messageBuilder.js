@@ -25,21 +25,9 @@ const messageBuilder = function (message) {
         case messageType.TEMPLATE:
             return [
                 {
-                    "type": "template",
-                    "altText": "Bangkok",
-                    "template": {
-                        "type": "buttons",
-                        "thumbnailImageUrl": "https://goo.gl/7Rgamb",
-                        "title": "Menu",
-                        "text": "Mostly Sunny in Bangkok, 31°C",
-                        "actions": [
-                            {
-                                "type": "uri",
-                                "label": "View detail",
-                                "uri": "https://goo.gl/SPm2vi"
-                            }
-                        ]
-                    }
+                    "type": matched.rule.msgType,
+                    "alt": matched.rule.replyMessage.text || '',
+                    "template": matched.rule.replyMessage
                 }
             ];
         case messageType.TEXT:
