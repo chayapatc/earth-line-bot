@@ -43,6 +43,7 @@ const rules = [
         msgType: messageType.TEMPLATE,
         replyMessage: {
             "type": "carousel",
+            "text": "เอาไปเลย 5 ร้าน",
             "columns": [
                 {
                     "thumbnailImageUrl": "https://s3-ap-southeast-1.amazonaws.com/photo.wongnai.com/photos/2014/09/07/97702e51b47044c18bff9c1a4f92c652.jpg",
