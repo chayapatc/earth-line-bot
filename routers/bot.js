@@ -15,8 +15,8 @@ router.post('/', function (req, res) {
         const replyToken = event.replyToken;
         lineAPI.reply(replyToken, messageBuilder(event.message))
             .then(
-                result => console.log('Successful reply to user id: ' + event.source.userId),
-                err => console.error('Error to reploy to user id:' + event.source.userId, err)
+                result => console.log('Successful reply to %s id: %s', event.source.type, event.source.userId),
+                err => console.error('Error to reploy to %s id: %s', event.source.type, event.source.userId, err)
             );
     });
 });
