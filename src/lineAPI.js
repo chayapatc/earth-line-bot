@@ -1,3 +1,4 @@
+const request = require('request');
 const { line } = require('./constants');
 
 const channelAccessToken = 'BDVFtfzeH17YRD+wdNT/AulcnDRxlA4wtvibKCmX7zh7tMQRQp0nPtGxWtGS3ZWhXwq/5oT5odP/c0zM4kSuPOaR+7AHGBT18HJGWdRLfdDpG7a3SVgXH09lYgsAMuVUvuk7CyXx8GFQiGdJPqwFCAdB04t89/1O/w1cDnyilFU=';
