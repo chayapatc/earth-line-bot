@@ -20,6 +20,11 @@ const rules = [
         pattern: 'เอิร์ธ|Earth',
         replyMessage: 'ว่าไง',
         msgType: messageType.TEXT
+    },
+    {
+        pattern: 'อากาศ',
+        replyMessage: '',
+        msgType: messageType.TEMPLATE
     }
 ];
 
