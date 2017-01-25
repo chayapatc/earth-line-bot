@@ -28,6 +28,8 @@ router.post('/', function (req, res) {
 });
 
 router.get('/multicast', function (req, res) {
+    res.send('OK');
+    
     const messages = [
         {
             type: 'text',
